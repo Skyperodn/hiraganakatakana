@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Opsi 8 - Retro Pixel Kana">
+  <defs>
+    <linearGradient id="o8bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#db2777"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="url(#o8bg)"/>
+  <!-- pixel grid frame -->
+  <rect x="4" y="4" width="56" height="56" rx="9" fill="none" stroke="#fef08a" stroke-width="2" stroke-dasharray="4 4"/>
+  <!-- pixel kana あ rendered blocky (4x4 units, each 6px) -->
+  <g fill="#fef9c3">
+    <!-- strokes approximated as pixels -->
+    <rect x="20" y="20" width="18" height="6"/>
+    <rect x="32" y="26" width="6" height="6"/>
+    <rect x="26" y="26" width="6" height="6"/>
+    <rect x="26" y="26" width="6" height="12"/>
+    <rect x="20" y="32" width="12" height="6"/>
+    <rect x="38" y="26" width="6" height="18"/>
+    <rect x="26" y="38" width="18" height="6"/>
+  </g>
+</svg>

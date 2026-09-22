@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Opsi 2 - Kanji Brush">
+  <defs>
+    <linearGradient id="o2bg" x1="4" y1="4" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#o2bg)"/>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="none" stroke="#0f172a" stroke-width="2.4"/>
+  <!-- Ink sumi-e "Japan" concept: bold 日 (simplified brush stroke) -->
+  <g fill="#0f172a">
+    <rect x="19" y="17" width="26" height="4" rx="1.6"/>
+    <rect x="21" y="23" width="4" height="24" rx="1.6"/>
+    <rect x="39" y="23" width="4" height="24" rx="1.6"/>
+    <rect x="21" y="30" width="22" height="3.6" rx="1.4"/>
+    <rect x="19" y="41" width="26" height="4" rx="1.6"/>
+  </g>
+  <!-- Red hanko seal -->
+  <rect x="41" y="41" width="14" height="14" rx="3" fill="#dc2626"/>
+  <path d="M45 48h6M48 45v6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

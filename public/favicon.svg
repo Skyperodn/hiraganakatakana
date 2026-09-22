@@ -5,45 +5,17 @@
       <stop offset="0.55" stop-color="#8b5cf6"/>
       <stop offset="1" stop-color="#d946ef"/>
     </linearGradient>
-    <linearGradient id="kcard" x1="20" y1="18" x2="44" y2="48" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#eef2ff"/>
-    </linearGradient>
-    <filter id="kshadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="2" stdDeviation="2.4" flood-color="#1e1b4b" flood-opacity="0.38"/>
-    </filter>
   </defs>
 
   <!-- Squircle base -->
   <rect width="64" height="64" rx="16" fill="url(#kbg)"/>
-  <!-- Top-left light sheen -->
+  <!-- Top light sheen -->
   <path d="M0 16C0 7.163 7.163 0 16 0h32C56.837 0 64 7.163 64 16v2C40 24 24 24 0 18v-2Z" fill="#ffffff" opacity="0.14"/>
   <!-- Depth glow bottom-right -->
-  <circle cx="52" cy="54" r="20" fill="#4c1d95" opacity="0.22"/>
+  <circle cx="52" cy="54" r="20" fill="#4c1d95" opacity="0.2"/>
 
-  <!-- Back card (tilted), precise 12px radius, aligned to a 4px grid -->
-  <g transform="rotate(-15 32 33)">
-    <rect x="14" y="15" width="34" height="34" rx="10" fill="#16233f" opacity="0.28"/>
-    <rect x="13" y="14" width="34" height="34" rx="10" fill="#c7d2fe" opacity="0.6"/>
-  </g>
-
-  <!-- Front card -->
-  <g transform="rotate(-6 32 32)" filter="url(#kshadow)">
-    <rect x="12" y="11" width="40" height="40" rx="11" fill="url(#kcard)"/>
-    <rect x="12.6" y="11.6" width="38.8" height="38.8" rx="10.4" fill="none" stroke="#c7d2fe" stroke-width="1.2"/>
-    <!-- accent dot, optically aligned to corner radius -->
-    <circle cx="19.5" cy="18.5" r="2.2" fill="#f472b6"/>
-  </g>
-
-  <!-- Kana あ, baseline tuned for optical centering -->
-  <g transform="rotate(-6 32 32)">
-    <text
-      x="32" y="43.5"
-      text-anchor="middle"
-      font-family="'Noto Sans JP','Noto Sans CJK JP','Hiragino Sans','Yu Gothic UI','Yu Gothic','Meiryo','MS Gothic',system-ui,sans-serif"
-      font-size="28"
-      font-weight="800"
-      fill="#4f46e5"
-    >あ</text>
+  <!-- Tabler "cards" glyph (flashcard / SRS), white, optically centered -->
+  <g transform="translate(12.8 12.2) scale(1.6)" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="m3.604 7.197l7.138-3.109a.96.96 0 0 1 1.27.527l4.924 11.902a1 1 0 0 1-.514 1.304L9.285 20.93a.96.96 0 0 1-1.271-.527L3.09 8.5a1 1 0 0 1 .514-1.304zM15 4h1a1 1 0 0 1 1 1v3.5M20 6q.396.168.768.315a1 1 0 0 1 .53 1.311L19 13"/>
   </g>
 </svg>

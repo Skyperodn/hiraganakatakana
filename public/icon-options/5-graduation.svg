@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Opsi 5 - Graduation Cap">
+  <defs>
+    <linearGradient id="o5bg" x1="6" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#o5bg)"/>
+  <circle cx="14" cy="14" r="16" fill="#ffffff" opacity="0.1"/>
+  <!-- Graduation cap -->
+  <path d="M32 14 8 25l24 11 24-11-24-11Z" fill="#fde68a"/>
+  <path d="M18 30v10c0 3 6 6 14 6s14-3 14-6V30l-14 6.5L18 30Z" fill="#fbbf24"/>
+  <!-- Tassel -->
+  <path d="M54 26v12" stroke="#f472b6" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="54" cy="40" r="3" fill="#f472b6"/>
+  <!-- Kana あ on the cap -->
+  <text x="32" y="30" text-anchor="middle" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" font-size="15" font-weight="800" fill="#4338ca">あ</text>
+</svg>

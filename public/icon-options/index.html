@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pilih Icon App — Kana Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body { font-family: 'Inter', system-ui, sans-serif; }
+      .fav { image-rendering: -webkit-optimize-contrast; }
+      .brandbar { background-image: linear-gradient(90deg,#6366f1,#8b5cf6,#d946ef); }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-100">
+    <div class="mx-auto max-w-6xl px-5 py-10">
+      <header class="mb-8 text-center">
+        <h1 class="text-3xl font-black tracking-tight sm:text-4xl">Pilih Icon App</h1>
+        <p class="mt-2 text-slate-400">
+          Icon dari <span class="font-semibold text-indigo-400">Lucide</span> &amp;
+          <span class="font-semibold text-fuchsia-400">Tabler</span> (MIT/ISC — bebas dipakai).
+          Klik salah satu untuk memilih.
+        </p>
+        <div class="mt-4 inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-xs text-slate-400 ring-1 ring-slate-800">
+          <span>Gaya:</span>
+          <button data-style="badge" class="style-btn rounded-full px-3 py-1 font-semibold bg-indigo-600 text-white">Badge (gradient)</button>
+          <button data-style="plain" class="style-btn rounded-full px-3 py-1 font-semibold text-slate-300 hover:bg-slate-800">Line-art polos</button>
+        </div>
+      </header>
+
+      <div id="grid" class="grid gap-5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"></div>
+
+      <div
+        id="banner"
+        class="fixed inset-x-0 bottom-0 hidden border-t border-indigo-500/40 bg-indigo-600/95 px-5 py-4 backdrop-blur"
+      >
+        <div class="mx-auto flex max-w-6xl items-center gap-4">
+          <img id="banner-icon" src="" alt="" class="h-10 w-10 rounded-lg ring-2 ring-white/40" />
+          <div class="flex-1">
+            <p class="text-sm text-indigo-100">Kamu memilih</p>
+            <p id="banner-name" class="text-lg font-bold text-white"></p>
+          </div>
+          <code id="banner-path" class="hidden rounded-lg bg-black/30 px-3 py-2 text-xs text-indigo-100 sm:block"></code>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const icons = [
+        { set: 'lucide', name: 'languages', label: 'Languages', tag: 'Simbol bahasa 文/A', license: 'ISC (Lucide)' },
+        { set: 'lucide', name: 'graduation-cap', label: 'Graduation Cap', tag: 'Belajar & lulus', license: 'ISC (Lucide)' },
+        { set: 'lucide', name: 'book-open', label: 'Book Open', tag: 'Belajar baca', license: 'ISC (Lucide)' },
+        { set: 'lucide', name: 'brain', label: 'Brain', tag: 'Memori / mengingat', license: 'ISC (Lucide)' },
+        { set: 'lucide', name: 'sparkles', label: 'Sparkles', tag: 'Motivasi / highlight', license: 'ISC (Lucide)' },
+        { set: 'lucide', name: 'layers', label: 'Layers', tag: 'Tumpukan kartu', license: 'ISC (Lucide)' },
+        { set: 'lucide', name: 'copy-check', label: 'Copy Check', tag: 'Kuis benar', license: 'ISC (Lucide)' },
+        { set: 'lucide', name: 'lightbulb', label: 'Lightbulb', tag: 'Mnemonic / tips', license: 'ISC (Lucide)' },
+        { set: 'tabler', name: 'language', label: 'Language', tag: 'Bahasa (gaya Tabler)', license: 'MIT (Tabler)' },
+        { set: 'tabler', name: 'school', label: 'School', tag: 'Belajar', license: 'MIT (Tabler)' },
+        { set: 'tabler', name: 'cards', label: 'Cards', tag: 'Flashcard (SRS)', license: 'MIT (Tabler)' },
+        { set: 'tabler', name: 'certificate', label: 'Certificate', tag: 'Prestasi / streak', license: 'MIT (Tabler)' },
+      ]
+
+      const badgeSrc = (i) => './badge/' + i.set + '-' + i.name + '.svg'
+      const plainSrc = (i) => './' + i.set + '/' + i.name + '.svg'
+
+      const grid = document.getElementById('grid')
+      let styleMode = 'badge'
+      let selected = null
+
+      function srcFor(i) {
+        return styleMode === 'badge' ? badgeSrc(i) : plainSrc(i)
+      }
+
+      function render() {
+        grid.innerHTML = ''
+        icons.forEach((opt, idx) => {
+          const accent = opt.set === 'lucide' ? 'indigo' : 'fuchsia'
+          const plain = styleMode === 'plain'
+          const card = document.createElement('button')
+          card.className =
+            'group relative flex flex-col items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-5 text-center transition hover:-translate-y-1 hover:border-' +
+            accent + '-500 hover:shadow-lg'
+          card.innerHTML = `
+            <span class="absolute left-3 top-3 rounded-full bg-slate-800 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-${accent}-400">${opt.set}</span>
+            <div class="flex h-24 w-24 items-center justify-center rounded-2xl ${plain ? 'bg-slate-800 p-3' : ''}">
+              <img src="${srcFor(opt)}" alt="${opt.label}" class="h-full w-full fav" />
+            </div>
+            <div>
+              <p class="font-bold text-slate-100">${opt.label}</p>
+              <p class="mt-0.5 text-xs text-slate-400">${opt.tag}</p>
+              <p class="mt-1 text-[10px] text-slate-500">${opt.license}</p>
+            </div>
+            <div class="flex items-end justify-center gap-4 rounded-xl bg-slate-950/60 px-4 py-3">
+              <span class="flex flex-col items-center gap-1"><img src="${srcFor(opt)}" class="h-4 w-4 fav"/><span class="text-[10px] text-slate-500">16</span></span>
+              <span class="flex flex-col items-center gap-1"><img src="${srcFor(opt)}" class="h-8 w-8 fav"/><span class="text-[10px] text-slate-500">32</span></span>
+              <span class="flex flex-col items-center gap-1"><img src="${srcFor(opt)}" class="h-12 w-12 fav"/><span class="text-[10px] text-slate-500">48</span></span>
+            </div>
+            <span class="check absolute right-3 top-3 hidden h-6 w-6 place-items-center rounded-full bg-indigo-600 text-white">✓</span>
+          `
+          card.addEventListener('click', () => pick(opt, card))
+          grid.appendChild(card)
+        })
+        // restore selection highlight if same option present
+        if (selected) {
+          const i = icons.indexOf(selected)
+          const cards = grid.querySelectorAll('button')
+          if (cards[i]) {
+            cards[i].classList.add('border-indigo-500', 'ring-2', 'ring-indigo-500')
+            const chk = cards[i].querySelector('.check')
+            chk.classList.remove('hidden'); chk.classList.add('grid')
+          }
+        }
+      }
+
+      function pick(opt, card) {
+        grid.querySelectorAll('button').forEach((c) => {
+          c.classList.remove('border-indigo-500', 'ring-2', 'ring-indigo-500')
+          const chk = c.querySelector('.check')
+          chk.classList.add('hidden'); chk.classList.remove('grid')
+        })
+        card.classList.add('border-indigo-500', 'ring-2', 'ring-indigo-500')
+        const check = card.querySelector('.check')
+        check.classList.remove('hidden'); check.classList.add('grid')
+
+        selected = opt
+        document.getElementById('banner').classList.remove('hidden')
+        document.getElementById('banner-icon').src = srcFor(opt)
+        document.getElementById('banner-name').textContent = opt.label + ' (' + opt.set + ')'
+        document.getElementById('banner-path').textContent =
+          styleMode === 'badge' ? 'badge/' + opt.set + '-' + opt.name + '.svg' : opt.set + '/' + opt.name + '.svg'
+      }
+
+      document.querySelectorAll('.style-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          styleMode = btn.dataset.style
+          document.querySelectorAll('.style-btn').forEach((b) => {
+            const on = b.dataset.style === styleMode
+            b.className =
+              'style-btn rounded-full px-3 py-1 font-semibold ' +
+              (on ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:bg-slate-800')
+          })
+          render()
+          if (selected) {
+            document.getElementById('banner-icon').src = srcFor(selected)
+            document.getElementById('banner-path').textContent =
+              styleMode === 'badge' ? 'badge/' + selected.set + '-' + selected.name + '.svg' : selected.set + '/' + selected.name + '.svg'
+          }
+        })
+      })
+
+      render()
+    </script>
+  </body>
+</html>
