@@ -6,12 +6,37 @@
     <link rel="icon" href="/favicon.svg" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#020617" />
+    <meta name="color-scheme" content="dark light" />
     <meta
       name="description"
       content="Hafalin Hiragana & Katakana pakai spaced repetition, mnemonic visual, dan kuis active recall."
     />
     <title>Kana Master — Hafalan Hiragana & Katakana</title>
+    <script>
+      // Apply the persisted theme before first paint to avoid a flash of the
+      // wrong color scheme. Dark is the app default when nothing is stored.
+      (function () {
+        try {
+          var raw = localStorage.getItem('kana-progress-v1')
+          var dark = true
+          if (raw) {
+            var parsed = JSON.parse(raw)
+            if (parsed && typeof parsed.state?.darkMode === 'boolean') {
+              dark = parsed.state.darkMode
+            } else if (parsed && typeof parsed.darkMode === 'boolean') {
+              dark = parsed.darkMode
+            }
+          }
+          var root = document.documentElement
+          root.classList.toggle('dark', dark)
+          root.style.colorScheme = dark ? 'dark' : 'light'
+          root.style.backgroundColor = dark ? '#020617' : '#f8fafc'
+        } catch (e) {
+          document.documentElement.classList.add('dark')
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

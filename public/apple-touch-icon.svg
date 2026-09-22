@@ -1,40 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180" role="img" aria-label="Kana Master">
   <defs>
-    <linearGradient id="bg" x1="20" y1="10" x2="160" y2="170" gradientUnits="userSpaceOnUse">
+    <linearGradient id="kbg" x1="20" y1="10" x2="162" y2="172" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#6366f1"/>
       <stop offset="0.55" stop-color="#8b5cf6"/>
-      <stop offset="1" stop-color="#ec4899"/>
+      <stop offset="1" stop-color="#d946ef"/>
     </linearGradient>
-    <linearGradient id="card" x1="45" y1="40" x2="135" y2="145" gradientUnits="userSpaceOnUse">
+    <linearGradient id="kcard" x1="52" y1="46" x2="128" y2="140" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#f1f5f9"/>
+      <stop offset="1" stop-color="#eef2ff"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#1e1b4b" flood-opacity="0.35"/>
+    <filter id="kshadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1e1b4b" flood-opacity="0.32"/>
     </filter>
   </defs>
 
-  <rect width="180" height="180" fill="url(#bg)"/>
-  <circle cx="130" cy="38" r="40" fill="#ffffff" opacity="0.14"/>
-  <circle cx="34" cy="148" r="34" fill="#312e81" opacity="0.25"/>
+  <rect width="180" height="180" fill="url(#kbg)"/>
+  <!-- Sheen -->
+  <path d="M0 44C0 19.699 19.699 0 44 0h92c24.301 0 44 19.699 44 44v6C112 66 68 66 0 50v-6Z" fill="#ffffff" opacity="0.13"/>
+  <circle cx="146" cy="150" r="56" fill="#4c1d95" opacity="0.2"/>
 
-  <g transform="rotate(-14 90 95)" opacity="0.45">
-    <rect x="40" y="45" width="100" height="100" rx="20" fill="#e0e7ff"/>
+  <!-- Back card -->
+  <g transform="rotate(-15 90 93)">
+    <rect x="42" y="47" width="96" height="96" rx="26" fill="#16233f" opacity="0.26"/>
+    <rect x="40" y="45" width="96" height="96" rx="26" fill="#c7d2fe" opacity="0.55"/>
   </g>
 
-  <g filter="url(#shadow)" transform="rotate(-6 90 95)">
-    <rect x="34" y="34" width="112" height="112" rx="26" fill="url(#card)"/>
-    <rect x="34" y="34" width="112" height="112" rx="26" fill="none" stroke="#c7d2fe" stroke-width="4"/>
-    <circle cx="56" cy="58" r="8" fill="#f472b6"/>
+  <!-- Front card -->
+  <g filter="url(#kshadow)" transform="rotate(-6 90 92)">
+    <rect x="34" y="32" width="112" height="112" rx="30" fill="url(#kcard)"/>
+    <rect x="36" y="34" width="108" height="108" rx="28" fill="none" stroke="#c7d2fe" stroke-width="3"/>
+    <circle cx="55" cy="54" r="6.5" fill="#f472b6"/>
     <text
-      x="90" y="124"
+      x="90" y="121"
       text-anchor="middle"
       font-family="'Noto Sans JP','Hiragino Sans','Yu Gothic','Meiryo',system-ui,sans-serif"
-      font-size="72"
+      font-size="70"
       font-weight="700"
       fill="#4f46e5"
     >あ</text>
   </g>
 
-  <path d="M146 102l3.4 7.8L157 113l-7.6 3.2L146 124l-3.4-7.8L135 113l7.6-3.2L146 102z" fill="#fde047"/>
+  <!-- Sparkle, geometric 4-point star -->
+  <path d="M146 100l3.6 8.4L158 112l-8.4 3.6L146 124l-3.6-8.4L134 112l8.4-3.6L146 100z" fill="#fde047"/>
+  <path d="M120 62l1.9 4.4 4.4 1.9-4.4 1.9-1.9 4.4-1.9-4.4-4.4-1.9 4.4-1.9 1.9-4.4z" fill="#fde047" opacity="0.85"/>
 </svg>

@@ -24,13 +24,21 @@
 }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
+}
+
+html {
+  background-color: #020617;
+}
+
+html:not(.dark) {
+  background-color: #f8fafc;
 }
 
 html,
 body,
 #root {
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -38,6 +46,13 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tabular numerals for all streak/score counters — stops digit jitter */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 
 /* Kana glyph rendering — big & clear */
@@ -84,15 +99,29 @@ body {
   padding-bottom: max(1rem, env(safe-area-inset-bottom));
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar — slimmer, theme-aware */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgb(148 163 184 / 0.4);
+  background: rgb(148 163 184 / 0.35);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(148 163 184 / 0.6);
+  background: rgb(148 163 184 / 0.55);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgb(100 116 139 / 0.4);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgb(148 163 184 / 0.55);
+}
+
+/* Focus ring baseline for keyboard users */
+:focus-visible {
+  outline: none;
 }

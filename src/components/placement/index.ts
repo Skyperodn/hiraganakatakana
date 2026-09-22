@@ -1,0 +1,6 @@
+export { default } from './PlacementTest'
+export { default as PlacementTest } from './PlacementTest'
+export { default as PlacementIntro } from './PlacementIntro'
+export { default as PlacementResult } from './PlacementResult'
+export { default as PlacementQuestionCard } from './PlacementQuestionCard'
+export type { PlacementTestProps, PlacementQuestion, AnsweredRecord, RoundResult } from './types'
