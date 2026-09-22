@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-jp: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Row colors — each gojuon row gets its own identity color */
+  --color-row-a: #f472b6;
+  --color-row-ka: #fb923c;
+  --color-row-sa: #facc15;
+  --color-row-ta: #4ade80;
+  --color-row-na: #2dd4bf;
+  --color-row-ha: #38bdf8;
+  --color-row-ma: #818cf8;
+  --color-row-ya: #c084fc;
+  --color-row-ra: #f472b6;
+  --color-row-wa: #fb7185;
+  --color-row-n: #94a3b8;
+  --color-row-dakuten: #a3e635;
+  --color-row-handakuten: #22d3ee;
+  --color-row-youon: #fbbf24;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Kana glyph rendering — big & clear */
+.kana-glyph {
+  font-family: var(--font-jp);
+  font-weight: 700;
+  line-height: 1;
+  font-feature-settings: "palt" 1;
+}
+
+/* 3D flip card helpers */
+.perspective {
+  perspective: 1200px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Reduced motion — gate CSS shake only (Framer Motion handles its own useReducedMotion) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-shake { animation: none; }
+}
+
+/* Safe-area helper for bottom padding (iOS notch / home indicator) */
+.safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(148 163 184 / 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(148 163 184 / 0.6);
+}
