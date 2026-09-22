@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react'
 import type { KanaItem } from '../../types'
 import { MiniIllustration } from './MiniIllustration'
+import KanaTypeIcon from './KanaTypeIcon'
 
 interface CardBackProps {
   kana: KanaItem
@@ -43,9 +44,10 @@ export function CardBack({
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center text-center">
         <span
-          className="rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white"
+          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white"
           style={{ backgroundColor: accent }}
         >
+          <KanaTypeIcon type={kana.type} className="h-3.5 w-3.5" />
           {typeLabel}
         </span>
 
@@ -68,7 +70,7 @@ export function CardBack({
 
       {showMnemonic && (
         <div className="relative z-10 mt-4">
-          <MiniIllustration />
+          <MiniIllustration kana={kana} accent={accent} />
         </div>
       )}
     </div>

@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react'
 import type { KanaItem } from '../../types'
+import KanaTypeIcon from './KanaTypeIcon'
 
 interface CardFrontProps {
   kana: KanaItem
@@ -49,6 +50,14 @@ export function CardFront({
           aria-hidden="true"
         />
         {kana.row.toUpperCase()}-row
+      </span>
+
+      {/* Script type emblem (hiragana あ / katakana ア) */}
+      <span
+        className="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center rounded-xl border border-slate-200 bg-white/90 text-slate-500 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-300"
+        title={kana.type === 'hiragana' ? 'Hiragana' : 'Katakana'}
+      >
+        <KanaTypeIcon type={kana.type} className="h-5 w-5" />
       </span>
 
       {frontContent !== undefined && frontContent !== null ? (

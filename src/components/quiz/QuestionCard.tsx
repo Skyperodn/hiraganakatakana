@@ -65,7 +65,7 @@ export default function QuestionCard({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.25 }}
-          className="relative z-10 flex flex-col items-center gap-4"
+          className="relative z-10 flex w-full flex-col items-center gap-4"
         >
           <Flashcard
             kana={current}

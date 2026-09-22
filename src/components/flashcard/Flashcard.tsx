@@ -60,7 +60,7 @@ export default function Flashcard({
         : ''
 
   const rootClasses = [
-    'perspective group relative w-full max-w-md outline-none',
+    'perspective group relative mx-auto w-full max-w-md shrink-0 outline-none',
     canFlipManually
       ? 'cursor-pointer select-none focus-visible:ring-4 focus-visible:ring-sky-400/60 rounded-3xl'
       : 'rounded-3xl',
