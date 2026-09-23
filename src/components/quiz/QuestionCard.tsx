@@ -43,7 +43,7 @@ export default function QuestionCard({
   typeAlternates,
 }: QuestionCardProps): ReactNode {
   return (
-    <div className="relative flex flex-1 flex-col items-center justify-center gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-700 dark:bg-slate-900">
+    <div className="relative flex flex-1 flex-col items-center justify-center gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:gap-6 sm:p-8 dark:border-slate-700 dark:bg-slate-900">
       {/* Soft row-tinted glow behind the prompt. */}
       <div
         className="pointer-events-none absolute inset-0 -z-0 opacity-40 blur-3xl"
@@ -85,15 +85,19 @@ export default function QuestionCard({
         </motion.div>
       </AnimatePresence>
 
-      <FeedbackBanner
-        correct={lastCorrect === true}
-        romaji={current.romaji}
-        boxDelta={boxDelta}
-        usedAlternate={usedAlternate}
-        typedNorm={typedNorm}
-        showTypeAlternates={showTypeAlternates}
-        typeAlternates={typeAlternates}
-      />
+      <AnimatePresence>
+        {lastCorrect !== null && (
+          <FeedbackBanner
+            correct={lastCorrect}
+            romaji={current.romaji}
+            boxDelta={boxDelta}
+            usedAlternate={usedAlternate}
+            typedNorm={typedNorm}
+            showTypeAlternates={showTypeAlternates}
+            typeAlternates={typeAlternates}
+          />
+        )}
+      </AnimatePresence>
     </div>
   )
 }

@@ -64,7 +64,10 @@ export default function Flashcard({
     canFlipManually
       ? 'cursor-pointer select-none focus-visible:ring-4 focus-visible:ring-sky-400/60 rounded-3xl'
       : 'rounded-3xl',
-    'aspect-[3/4]',
+    // Responsive card shape: squarer on phones (so the answer options stay
+    // on-screen) and taller on larger viewports. A max-height guards against
+    // the card eating the whole viewport on short landscape screens.
+    'aspect-[4/5] max-h-[52vh] sm:aspect-[3/4] sm:max-h-none',
     revealRing,
     className ?? '',
   ]
